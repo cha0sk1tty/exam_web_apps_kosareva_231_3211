@@ -7,3 +7,4 @@ main = Blueprint('main', __name__)
 def home():
     books = Book.query.all()
     return render_template('index.html', books=books)
+
