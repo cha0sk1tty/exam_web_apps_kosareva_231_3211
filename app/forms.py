@@ -21,7 +21,6 @@ from wtforms import (
     SelectField,
 )
 from wtforms.validators import DataRequired, Length, NumberRange, InputRequired
-from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class BookForm(FlaskForm):

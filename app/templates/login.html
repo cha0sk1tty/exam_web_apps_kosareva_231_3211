@@ -1,26 +1,29 @@
 {% extends 'base.html' %}
 {% block title %}Вход{% endblock %}
 {% block content %}
-    <div class="container">
-        <h1>Вход в систему</h1>
+<div class="container">
+    <h1>Вход в систему</h1>
+    <p> Пользователь: testuser/qwerty123</p>
+    <p> Администратор: adminuser/adminpass</p>
+    <p> Модератор: moderatoruser/moderpass</p>
 
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.login.label }}
-                {{ form.login(class="form-control") }}
-            </div>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.login.label }}
+            {{ form.login(class="form-control") }}
+        </div>
 
-            <div class="form-group">
-                {{ form.password.label }}
-                {{ form.password(class="form-control") }}
-            </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="form-control") }}
+        </div>
 
-            <div class="form-group">
-                {{ form.remember() }} {{ form.remember.label }}
-            </div>
+        <div class="form-group">
+            {{ form.remember() }} {{ form.remember.label }}
+        </div>
 
-            <button type="submit" class="btn btn-primary">Войти</button>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+</div>
 {% endblock %}

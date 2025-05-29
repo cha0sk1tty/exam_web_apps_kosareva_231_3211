@@ -8,21 +8,17 @@ from flask import (
     request,
     flash,
     current_app,
-    send_from_directory,
 )
-from urllib.parse import urlencode
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.utils import secure_filename
-from sqlalchemy import or_, and_
 import markdown
 import bleach
 from werkzeug.datastructures import FileStorage, MultiDict
 
-from app.models import Book, Review, Genre, Cover, Publisher, Author, Role, User
+from app.models import Book, Review, Genre, Cover, Publisher, Author, User
 from app.forms import BookForm, ReviewForm, LoginForm, SearchForm
 from app.forms import BookForm
 from app import db
-
 
 from sqlalchemy import func
 
@@ -81,25 +77,6 @@ def role_required(*roles):
 def make_multi_value_args(args):
     args = args.to_dict(flat=False)
     # Если ключ отсутствует — ставим пустой список
-    for key in ["genres", "years"]:
-        if key not in args:
-            args[key] = []
-    return MultiDict(args)
-
-
-from flask import Blueprint, render_template, request
-from sqlalchemy import func
-from werkzeug.datastructures import MultiDict
-
-from app import db  # <-- правильный импорт
-from app.models import Book, Review, Genre, Author
-from app.forms import SearchForm
-
-views = Blueprint("views", __name__)
-
-
-def make_multi_value_args(args):
-    args = args.to_dict(flat=False)
     for key in ["genres", "years"]:
         if key not in args:
             args[key] = []
