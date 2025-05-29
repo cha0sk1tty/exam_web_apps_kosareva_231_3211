@@ -9,8 +9,9 @@ login_manager = LoginManager()
 
 
 def create_app():
-    app = Flask(__name__, static_folder='static')
-    app.config.from_pyfile('C:\exam_web_apps_kosareva_231_3211\instance\config.py')
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile('config.py')
+
 
     db.init_app(app)
     migrate.init_app(app, db)
