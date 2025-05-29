@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}{{ book.title }}{% endblock %}
+{% block content %}
+<h1>{{ book.title }}</h1>
+{% if book.cover %}
+<img src="{{ url_for('static', filename='covers/' + book.cover.filename) }}" alt="Обложка" class="img-thumbnail">
+{% else %}
+<p>Обложка отсутствует</p>
+{% endif %}
+
+<div class="book-meta">
+    <p>{{ description_html | safe }}</p>
+    <p><strong>Автор:</strong> {{ book.author.name if book.author else 'Не указан' }}</p>
+    <p><strong>Год издания:</strong> {{ book.year }}</p>
+    <p><strong>Издатель:</strong> {{ book.publisher.name if book.publisher else 'Не указан' }}</p>
+    <p><strong>Жанры:</strong>
+        {% for genre in book.genres %}
+        {{ genre.name }}{% if not loop.last %}, {% endif %}
+        {% else %}
+        Не указаны
+        {% endfor %}
+    </p>
+    <p><strong>Количество страниц:</strong> {{ book.pages }}</p>
+</div>
+
+<h3>Рецензии</h3>
+{% for review in reviews %}
+<div class="review">
+    <h5>{{ review.user.first_name }} {{ review.user.last_name }}
+        (Оценка: {{ review.rating }})
+        <small>{{ review.created_at.strftime('%d.%m.%Y %H:%M') }}</small>
+    </h5>
+    <p>{{ review.text_html | safe }}</p>
+</div>
+{% endfor %}
+
+{% if current_user.is_authenticated and user_review is none %}
+<a href="{{ url_for('views.add_review', book_id=book.id) }}" class="btn btn-primary">Написать рецензию</a>
+{% elif user_review %}
+<div class="user-review">
+    <h5>Ваша рецензия</h5>
+    <p>{{ user_review.text | safe }}</p>
+    <p>Оценка: {{ user_review.rating }}</p>
+</div>
+{% endif %}
+{% endblock %}

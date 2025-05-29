@@ -1,0 +1,651 @@
+/* Основные настройки шрифта и фона */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    color: #2c3e50;
+}
+
+/* Контейнер для контента */
+.container {
+    max-width: 1140px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background-color: #34495e;
+    color: white;
+    padding: 18px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.25s ease;
+}
+
+nav a:hover {
+    color: #1abc9c;
+}
+
+nav span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ecf0f1;
+    margin-right: 20px;
+}
+
+/* Основное содержимое */
+main {
+    padding: 40px 0;
+    min-height: 75vh;
+}
+
+/* Подвал */
+footer {
+    background-color: #34495e;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-top: 50px;
+    user-select: none;
+}
+
+/* Карточки книг */
+.book-card,
+.book-list-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.book-card:hover,
+.book-list-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.book-card h3,
+.book-list-item h5 {
+    margin-top: 0;
+    color: #34495e;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* Формы */
+form {
+    background: white;
+    padding: 30px 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    margin-bottom: 35px;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea,
+select,
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.8px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.4);
+}
+
+/* Кнопки */
+button,
+input[type="submit"],
+.btn,
+.btn-primary {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.25s ease;
+    user-select: none;
+    display: inline-block;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.btn:hover,
+.btn-primary:hover {
+    background-color: #16a085;
+    box-shadow: 0 6px 12px rgba(22, 160, 133, 0.5);
+}
+
+/* Сообщения (флеши) */
+.flash {
+    padding: 18px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    user-select: none;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1.5px solid #c3e6cb;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1.5px solid #f5c6cb;
+}
+
+.flash.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1.5px solid #bee5eb;
+}
+
+/* Список книг */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* Детали книги */
+.book-detail {
+    background: white;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.book-cover {
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Отзывы */
+.review-list {
+    margin-top: 40px;
+}
+
+.review-item {
+    background: #ecf0f1;
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 6px solid #1abc9c;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.review-item small {
+    color: #7f8c8d;
+    display: block;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.review {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #1abc9c;
+}
+
+.user-review {
+    background: #e8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.375rem;
+    margin-top: 1.5rem;
+    gap: 0.3rem;
+}
+
+.pagination .page-item {
+    margin: 0;
+}
+
+.pagination .page-link {
+    color: #1abc9c;
+    border: 1px solid #1abc9c;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    user-select: none;
+    min-width: 38px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Цветной фон для стрелочек */
+.pagination .page-link[aria-label^="Первая"],
+.pagination .page-link[aria-label^="Предыдущая"],
+.pagination .page-link[aria-label^="Следующая"],
+.pagination .page-link[aria-label^="Последняя"] {
+    background-color: #1abc9c;
+    color: white !important;
+    border-color: #1abc9c;
+}
+
+/* Эффект при наведении */
+.pagination .page-link:hover {
+    background-color: #16a085;
+    color: white;
+    text-decoration: none;
+    border-color: #16a085;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #1abc9c;
+    color: white;
+    border-color: #1abc9c;
+    cursor: default;
+    font-weight: bold;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #ccc !important;
+    background-color: #f8f9fa !important;
+    border-color: #ddd !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Стиль для точек */
+.pagination .page-item.ellipsis {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    pointer-events: none;
+}
+
+.pagination .page-item.ellipsis span {
+    color: #6c757d;
+}
+
+/* Соседние страницы */
+.pagination .page-item.adjacent {
+    display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 576px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .pagination .page-item.adjacent:not(.active) {
+        display: none;
+    }
+}
+
+/* Общие стили для контейнера действий */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Общие стили для всех кнопок (и ссылок, стилизованных под кнопки) */
+.action-btn {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Стиль для кнопки Просмотр */
+.btn-view {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #138496;
+}
+
+/* Стиль для кнопки Редактировать */
+.btn-edit {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+/* Стиль для кнопки Удалить */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Специальные стили для формы */
+.action-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 10px;
+    }
+
+    nav a {
+        margin: 8px 0;
+    }
+
+    .book-list {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    form {
+        padding: 25px 20px 30px;
+    }
+}
+
+.navbar {
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nav-left .nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    transition: color 0.3s ease;
+}
+
+.nav-left .nav-link:hover {
+    color: #1abc9c;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-user-name {
+    color: #ecf0f1;
+}
+
+.btn-login,
+.btn-logout {
+    background-color: #1abc9c;
+    border: none;
+    padding: 8px 18px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-login:hover,
+.btn-logout:hover {
+    background-color: #16a085;
+}
+
+.btn-login {
+    display: inline-block;
+}
+
+form {
+    margin: 0;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Чтобы линии между колонками были ярче и ровнее */
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+    /* светло-серый цвет */
+}
+
+/* Дополнительные отступы для читаемости */
+.table td,
+.table th {
+    vertical-align: middle;
+    /* Выравнивание по вертикали */
+}
+
+/* Чтобы кнопка была компактной, но с отступами */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+
+/* Стили для таблицы книг */
+.table-responsive {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.table thead th {
+    background-color: #34495e;
+    color: white;
+    font-weight: 600;
+    padding: 15px 12px;
+    border: none;
+    position: sticky;
+    top: 0;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(26, 188, 156, 0.05);
+}
+
+.table td {
+    padding: 12px;
+    border-top: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.table td:first-child {
+    border-left: 1px solid #e9ecef;
+}
+
+.table tr:last-child td {
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Стили для кнопок в таблице */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Стили для выравнивания текста в ячейках */
+.text-center {
+    text-align: center;
+}
+
+/* Стили для четных строк */
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Стили для заголовков столбцов */
+.table th {
+    white-space: nowrap;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .table-responsive {
+        border-radius: 8px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 15px;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+    }
+
+    .table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: 600;
+        text-align: left;
+        color: #495057;
+    }
+
+    .table td:last-child {
+        border-bottom: none;
+    }
+}

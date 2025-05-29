@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Редактировать' if editing else 'Добавить' }} книгу{% endblock %}
+{% block content %}
+<h1>{{ 'Редактировать' if editing else 'Добавить' }} книгу</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control", id="description") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.year.label }}<br>
+        {{ form.year(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.publisher.label }}<br>
+        {{ form.publisher(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.author.label }}<br>
+        {{ form.author(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.pages.label }}<br>
+        {{ form.pages(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.genres.label }}<br>
+        {{ form.genres(class="form-control", multiple=True) }}
+    </div>
+
+    {% if not editing %}
+    <div class="mb-3">
+        {{ form.cover.label }}<br>
+        {{ form.cover(class="form-control") }}
+    </div>
+    {% else %}
+    <p>Обложка не может быть изменена при редактировании.</p>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">{{ 'Сохранить' if editing else 'Добавить' }}</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+<script>
+  var easyMDE = new EasyMDE({ element: document.getElementById('description') });
+</script>
+{% endblock %}

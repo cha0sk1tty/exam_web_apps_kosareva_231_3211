@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Добавить отзыв{% endblock %}
+{% block content %}
+    <h2>Оставить отзыв для "{{ book.title }}"</h2>
+    <form method="POST" action="{{ url_for('views.add_review', book_id=book.id) }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.rating.label }}<br>
+            {{ form.rating() }}
+            {% for error in form.rating.errors %}
+                <span style="color:red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.text.label }}<br>
+            {{ form.text(rows=5, cols=50) }}
+            {% for error in form.text.errors %}
+                <span style="color:red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
