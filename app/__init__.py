@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -10,17 +11,17 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_pyfile('config.py')
 
+    # Загрузка конфигурации из файла instance/config.py
+    app.config.from_pyfile('config.py')
 
     db.init_app(app)
     migrate.init_app(app, db)
     login_manager.init_app(app)
     login_manager.login_view = 'views.login'
 
-    from .models import User  # импорт модели здесь
-    from .views import views  # импорт blueprint здесь
-    
+    from .models import User
+    from .views import views
 
     @login_manager.user_loader
     def load_user(user_id):
