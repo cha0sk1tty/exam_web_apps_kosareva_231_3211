@@ -34,6 +34,10 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Найти</button>
+        <button type="button" class="btn btn-secondary" onclick="resetFilters();">
+            Сбросить фильтры
+        </button>
+
     </form>
 
 
@@ -182,4 +186,11 @@
 
     </script>
 </div>
+<script>
+    function resetFilters() {
+        const url = new URL(window.location.href);
+        url.search = '';  
+        window.location.href = url.toString();
+    }
+</script>
 {% endblock %}
